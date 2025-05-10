@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة مواعيد زراعة الخضروات</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2c5530">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered successfully');
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed:', error);
+                    });
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>حاسبة مواعيد زراعة الخضروات</h1>
+        
+        <div class="vegetable-selector">
+            <label for="vegetable">اختر نوع الخضار:</label>
+            <select id="vegetable">
+                <optgroup label="الورقيات">
+                    <option value="lettuce">خس</option>
+                    <option value="spinach">سبانخ</option>
+                    <option value="parsley">بقدونس</option>
+                    <option value="mint">نعناع</option>
+                    <option value="basil">ريحان</option>
+                    <option value="arugula">جرجير</option>
+                </optgroup>
+                <optgroup label="الخضروات">
+                    <option value="carrot">جزر</option>
+                    <option value="potato">بطاطس</option>
+                    <option value="onion">بصل</option>
+                    <option value="garlic">ثوم</option>
+                    <option value="tomato">طماطم</option>
+                </optgroup>
+                <optgroup label="الفواكه">
+                    <option value="watermelon">بطيخ</option>
+                    <option value="cantaloupe">شمام</option>
+                    <option value="strawberry">فراولة</option>
+                    <option value="fig">تين</option>
+                    <option value="pomegranate">رمان</option>
+                    <option value="grape">عنب</option>
+                    <option value="mango">مانجو</option>
+                    <option value="apple">تفاح</option>
+                    <option value="apricot">مشمش</option>
+                    <option value="peach">خوخ</option>
+                    <option value="date">تمر</option>
+                    <option value="banana">موز</option>
+                    <option value="orange">برتقال</option>
+                    <option value="lemon">ليمون</option>
+                    <option value="guava">جوافة</option>
+                    <option value="plum">برقوق</option>
+                    <option value="olive">زيتون</option>
+                    <option value="kiwi">كيوي</option>
+                </optgroup>
+                <optgroup label="الورقيات">
+                    <option value="lettuce">خس</option>
+                    <option value="spinach">سبانخ</option>
+                    <option value="arugula">جرجير</option>
+                    <option value="parsley">بقدونس</option>
+                    <option value="coriander">كزبرة</option>
+                    <option value="chard">سلق</option>
+                </optgroup>
+                <optgroup label="الخضروات الثمرية">
+                    <option value="eggplant">باذنجان</option>
+                    <option value="pepper">فلفل</option>
+                    <option value="zucchini">كوسة</option>
+                    <option value="okra">بامية</option>
+                    <option value="squash">قرع</option>
+                </optgroup>
+                <optgroup label="خضروات أخرى">
+                    <option value="tomato">طماطم</option>
+                    <option value="cucumber">خيار</option>
+                <option value="lettuce">خس</option>
+                <option value="carrot">جزر</option>
+                <option value="potato">بطاطس</option>
+                <option value="onion">بصل</option>
+                <option value="garlic">ثوم</option>
+                <option value="eggplant">باذنجان</option>
+                <option value="zucchini">كوسة</option>
+                <option value="pepper">فلفل</option>
+                <option value="okra">بامية</option>
+                <option value="beans">فاصوليا</option>
+                <option value="peas">بازلاء</option>
+                <option value="spinach">سبانخ</option>
+                <option value="radish">فجل</option>
+                <option value="cabbage">ملفوف</option>
+                <option value="cauliflower">قرنبيط</option>
+                <option value="broccoli">بروكلي</option>
+                <option value="sweetpotato">بطاطا حلوة</option>
+                <option value="turnip">لفت</option>
+                <option value="corn">ذرة</option>
+                <option value="watermelon">بطيخ</option>
+                <option value="cantaloupe">شمام</option>
+            </select>
+        </div>
+
+        <div class="print-button">
+            <button onclick="window.print()" class="print-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                    <rect x="6" y="14" width="12" height="8"></rect>
+                </svg>
+                طباعة
+            </button>
+        </div>
+
+        <div class="planting-info">
+            <h2>معلومات الزراعة</h2>
+            <div id="plantingDetails">
+                <div class="info-card">
+                    <h3>موعد الزراعة المناسب</h3>
+                    <p id="plantingTime"></p>
+                </div>
+                <div class="planting-info">
+                    <p id="plantingTime"></p>
+                    <p>فترة النمو: <span id="growthPeriod"></span></p>
+                    
+                    <div class="harvest-calculator">
+                        <h3>حاسبة موعد الحصاد</h3>
+                        <div class="input-group">
+                            <label for="plantingDate">تاريخ الزراعة:</label>
+                            <input type="date" id="plantingDate" dir="ltr">
+                        </div>
+                        <button id="calculateHarvest" class="calculate-btn">احسب موعد الحصاد</button>
+                        <div class="harvest-result" id="harvestResult">
+                            <div class="harvest-range">
+                                <h4>نطاق موعد الحصاد المتوقع:</h4>
+                                <p>من: <span id="harvestTimeMin" dir="ltr"></span></p>
+                                <p>إلى: <span id="harvestTimeMax" dir="ltr"></span></p>
+                            </div>
+                            <p class="days-remaining">الأيام المتبقية: <span id="daysRemaining"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-card">
+                    <h3>موعد الحصاد المتوقع</h3>
+                    <p id="harvestTime"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="care-instructions" id="careInstructions">
+            <h2>تعليمات العناية</h2>
+            <ul id="careList"></ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

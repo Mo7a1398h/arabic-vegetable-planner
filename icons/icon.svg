@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- خلفية دائرية -->
+    <circle cx="256" cy="256" r="248" fill="#4CAF50"/>
+    
+    <!-- الشمس -->
+    <circle cx="180" cy="160" r="60" fill="#FFC107"/>
+    <g>
+        <!-- أشعة الشمس -->
+        <path d="M180 80 L180 60" stroke="#FFC107" stroke-width="12" stroke-linecap="round"/>
+        <path d="M180 260 L180 240" stroke="#FFC107" stroke-width="12" stroke-linecap="round"/>
+        <path d="M100 160 L80 160" stroke="#FFC107" stroke-width="12" stroke-linecap="round"/>
+        <path d="M280 160 L260 160" stroke="#FFC107" stroke-width="12" stroke-linecap="round"/>
+        <path d="M120 100 L105 85" stroke="#FFC107" stroke-width="12" stroke-linecap="round"/>
+        <path d="M255 235 L240 220" stroke="#FFC107" stroke-width="12" stroke-linecap="round"/>
+    </g>
+
+    <!-- النبتة -->
+    <path d="M256 400 L256 280" stroke="#2E7D32" stroke-width="16" stroke-linecap="round"/>
+    <!-- الأوراق -->
+    <path d="M256 350 C200 350,180 300,200 260 C220 220,256 280,256 280" fill="#388E3C"/>
+    <path d="M256 350 C312 350,332 300,312 260 C292 220,256 280,256 280" fill="#388E3C"/>
+    <path d="M256 320 C200 320,180 270,200 230 C220 190,256 250,256 250" fill="#4CAF50"/>
+    <path d="M256 320 C312 320,332 270,312 230 C292 190,256 250,256 250" fill="#4CAF50"/>
+    
+    <!-- التقويم -->
+    <rect x="300" y="150" width="120" height="120" rx="10" fill="white"/>
+    <rect x="300" y="150" width="120" height="30" rx="10" fill="#E57373"/>
+    <!-- خطوط التقويم -->
+    <path d="M320 200 L400 200" stroke="#BDBDBD" stroke-width="2"/>
+    <path d="M320 220 L400 220" stroke="#BDBDBD" stroke-width="2"/>
+    <path d="M320 240 L400 240" stroke="#BDBDBD" stroke-width="2"/>
+    
+    <!-- حدود دائرية -->
+    <circle cx="256" cy="256" r="248" stroke="#388E3C" stroke-width="16" fill="none"/>
+    <!-- توهج خارجي -->
+    <circle cx="256" cy="256" r="240" stroke="rgba(76,175,80,0.2)" stroke-width="32" fill="none" filter="blur(8px)"/>
+</svg>
